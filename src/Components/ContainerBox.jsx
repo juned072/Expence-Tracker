@@ -3,29 +3,37 @@ import Card from "./Card";
 
 const ContainerBox = () => {
   return (
-    <div className="bg-white md:min-h-[450px] md:max-h-[450px] w-[350px] h-[600px] md:min-w-[550px] md:max-w-[550px] rounded-md overflow-y-auto relative shadow-md">
-      <div className="p-4 h-full w-full">
+    <div className="bg-white md:min-h-[550px] md:max-h-[550px] w-full h-full md:min-w-[580px] md:max-w-[580px] rounded-md overflow-hidden relative shadow-md">
+      <div className="p-3 h-full w-full overflow-y-auto pb-24">
         <h2 className="text-2xl text-gray-600 font-semibold mb-5">
-          Expence Tracker
+          Expense Tracker
         </h2>
         <div>
-          <form className="flex items-center flex-wrap">
+          <form className="flex items-center justify-center flex-wrap md:rounded-2xl rounded-b-3xl shadow-md md:pb-5 pb-10 p-2 md:shadow-md">
             <input
               type="text"
               placeholder="Item name"
-              className="w-full md:w-52 md:mr-2 mr-0 mb-2 md:mb-0 p-2 rounded-md bg-gray-100 outline-blue-300"
+              className="w-full md:w-52 md:mr-2 mr-0 mb-2 md:mb-0 p-3 rounded-md bg-gray-100 outline-blue-300"
             />
             <input
               type="number"
               placeholder="Item price"
-              className="w-full md:w-52 md:mr-2 mr-0 mb-2 md:mb-0 p-2 rounded-md bg-gray-100 outline-blue-300"
+              className="w-full md:w-52 md:mr-2 mr-0 mb-2 md:mb-0 p-3 rounded-md bg-gray-100 outline-blue-300"
             />
-            <button className="w-full md:w-12 p-2 rounded-md bg-blue-500 hover:bg-blue-600 text-white">
+            <button className="w-full md:w-14 md:p-3 p-2 md:rounded-md rounded-b-xl bg-blue-500 hover:bg-blue-600 text-white">
               Add
             </button>
+            <div className="mt-5 flex justify-center items-center md:w-96 w-80">
+              <p className="text-center text-gray-500 text-sm px-2">
+                Create your market list here to find out the cost of each item
+                and the total expense
+              </p>
+            </div>
           </form>
         </div>
-        <Card />
+        <div className="mt-8">
+          <Card />
+        </div>
       </div>
       <div className="bg-gray-100 absolute bottom-0 left-0 w-full p-4 flex items-center justify-between">
         <h3 className="font-semibold text-xl text-gray-800">
