@@ -8,6 +8,15 @@ const ContainerBox = () => {
   });
   const [items, setItems] = useState([]);
 
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    setItems([...items, data]);
+    setData({
+      itemName: "",
+      itemPrice: "",
+    });
+  };
+
   const handleInputChanges = (e) => {
     const { name, value } = e.target;
     setData({ ...data, [name]: value });
@@ -52,7 +61,11 @@ const ContainerBox = () => {
           </form>
         </div>
         <div className="mt-8">
-          <Card />
+          <div>
+            {items.map((item, index) => {
+              return <Card key={index} item={item} />;
+            })}
+          </div>
         </div>
       </div>
       <div className="bg-gray-100 absolute bottom-0 left-0 w-full p-4 flex items-center justify-between">
