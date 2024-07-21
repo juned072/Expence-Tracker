@@ -34,6 +34,13 @@ const ContainerBox = () => {
     setItems([]);
   };
 
+  const totalPrice = () => {
+    return items.reduce(
+      (total, item) => total + parseFloat(item.itemPrice || 0),
+      0
+    );
+  };
+
   return (
     <div className="bg-white md:min-h-[550px] md:max-h-[550px] w-full h-full md:min-w-[580px] md:max-w-[580px] rounded-md overflow-hidden relative shadow-md">
       <div className="p-3 h-full w-full overflow-y-auto pb-16">
@@ -89,7 +96,9 @@ const ContainerBox = () => {
       <div className="bg-gray-100 absolute bottom-0 left-0 w-full p-4 flex items-center justify-between">
         <h3 className="font-semibold text-xl text-gray-800">
           Total Price:
-          <span className="text-blue-500 ml-2 md:text-2xl text-xl">$100</span>
+          <span className="text-blue-500 ml-2 md:text-2xl text-xl">
+            ${totalPrice()}
+          </span>
         </h3>
         <button
           onClick={handleClearAllItem}
