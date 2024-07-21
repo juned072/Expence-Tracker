@@ -10,7 +10,11 @@ const ContainerBox = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    setItems([...items, data]);
+    if (!data.itemPrice || !data.itemName) {
+      alert("Please add some items!");
+    } else {
+      setItems([...items, data]);
+    }
     setData({
       itemName: "",
       itemPrice: "",
