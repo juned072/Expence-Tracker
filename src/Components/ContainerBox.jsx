@@ -22,6 +22,10 @@ const ContainerBox = () => {
     setData({ ...data, [name]: value });
   };
 
+  const handleRemoveItem = (itemToRemove) => {
+    setItems((prevItems) => prevItems.filter((item) => item !== itemToRemove));
+  };
+
   return (
     <div className="bg-white md:min-h-[550px] md:max-h-[550px] w-full h-full md:min-w-[580px] md:max-w-[580px] rounded-md overflow-hidden relative shadow-md">
       <div className="p-3 h-full w-full overflow-y-auto pb-16">
@@ -63,7 +67,13 @@ const ContainerBox = () => {
         <div className="mt-8">
           <div>
             {items.map((item, index) => {
-              return <Card key={index} item={item} />;
+              return (
+                <Card
+                  key={index}
+                  item={item}
+                  handleRemoveItem={handleRemoveItem}
+                />
+              );
             })}
           </div>
         </div>
