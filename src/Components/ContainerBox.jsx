@@ -4,7 +4,7 @@ import Card from "./Card";
 const ContainerBox = () => {
   return (
     <div className="bg-white md:min-h-[550px] md:max-h-[550px] w-full h-full md:min-w-[580px] md:max-w-[580px] rounded-md overflow-hidden relative shadow-md">
-      <div className="p-3 h-full w-full overflow-y-auto pb-24">
+      <div className="p-3 h-full w-full overflow-y-auto pb-16">
         <h2 className="text-2xl text-gray-600 font-semibold mb-5">
           Expense Tracker
         </h2>
