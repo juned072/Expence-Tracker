@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "./Card";
 
 const ContainerBox = () => {
+  const [data, setData] = useState({
+    itemName: "",
+    itemPrice: "",
+  });
+  const [items, setItems] = useState([]);
+
+  const handleInputChanges = (e) => {
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value });
+  };
+
   return (
     <div className="bg-white md:min-h-[550px] md:max-h-[550px] w-full h-full md:min-w-[580px] md:max-w-[580px] rounded-md overflow-hidden relative shadow-md">
       <div className="p-3 h-full w-full overflow-y-auto pb-16">
@@ -9,13 +20,22 @@ const ContainerBox = () => {
           Expense Tracker
         </h2>
         <div>
-          <form className="flex items-center justify-center flex-wrap md:rounded-2xl rounded-b-3xl shadow-md md:pb-5 pb-10 p-2 md:shadow-md">
+          <form
+            onSubmit={handleFormSubmit}
+            className="flex items-center justify-center flex-wrap md:rounded-2xl rounded-b-3xl shadow-md md:pb-5 pb-10 p-2 md:shadow-md"
+          >
             <input
+              name="itemName"
+              value={data.itemName}
+              onChange={handleInputChanges}
               type="text"
               placeholder="Item name"
               className="w-full md:w-52 md:mr-2 mr-0 mb-2 md:mb-0 p-3 rounded-md bg-gray-100 outline-blue-300"
             />
             <input
+              name="itemPrice"
+              value={data.itemPrice}
+              onChange={handleInputChanges}
               type="number"
               placeholder="Item price"
               className="w-full md:w-52 md:mr-2 mr-0 mb-2 md:mb-0 p-3 rounded-md bg-gray-100 outline-blue-300"
