@@ -30,6 +30,10 @@ const ContainerBox = () => {
     setItems((prevItems) => prevItems.filter((item) => item !== itemToRemove));
   };
 
+  const handleClearAllItem = () => {
+    setItems([]);
+  };
+
   return (
     <div className="bg-white md:min-h-[550px] md:max-h-[550px] w-full h-full md:min-w-[580px] md:max-w-[580px] rounded-md overflow-hidden relative shadow-md">
       <div className="p-3 h-full w-full overflow-y-auto pb-16">
@@ -87,7 +91,10 @@ const ContainerBox = () => {
           Total Price:
           <span className="text-blue-500 ml-2 md:text-2xl text-xl">$100</span>
         </h3>
-        <button className="bg-red-500 hover:bg-red-600 rounded-md text-white md:p-2 p-1">
+        <button
+          onClick={handleClearAllItem}
+          className="bg-red-500 hover:bg-red-600 rounded-md text-white md:p-2 p-1"
+        >
           Clear All
         </button>
       </div>
